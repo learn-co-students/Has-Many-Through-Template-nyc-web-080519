@@ -7,6 +7,7 @@ attr_accessor :name, :specialty, :college, :cost
         @specialty = doc_specs[:specialty]
         @college = doc_specs[:college]
         @cost = doc_specs[:cost]
+        @@all_docs << self
     end
 
     def add_patient(patient, cost)
@@ -17,7 +18,7 @@ attr_accessor :name, :specialty, :college, :cost
     def rich_patient
         Appointments.all.select do |appointment|
             if appointment.cost > 1000
-                patient.name
+                appointment.patient.name
             end
         end
     end

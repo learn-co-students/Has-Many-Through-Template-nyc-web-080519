@@ -6,6 +6,7 @@ attr_accessor :name, :ailments, :income, :college
         @name = patient_specs[:name]
         @ailments = patient_specs[:ailments]
         @income = patient_specs[:income]
+        @@all << self
     end
 
     def affordable_docs
